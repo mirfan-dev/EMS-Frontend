@@ -1,7 +1,7 @@
 import {  useRef } from "react";
 import styles from "./CreateEmployee.module.css";
 import axios from "axios";
-import {useNavigate, useParams } from "react-router-dom";
+import {Link, useNavigate, useParams } from "react-router-dom";
 
 const CreateEmployee = () => {
   
@@ -35,9 +35,7 @@ const CreateEmployee = () => {
       .then((res) => {
         console.log(res.data)
         navigator("/");
-      });
-
-     
+      });  
       
   };
 
@@ -50,51 +48,48 @@ const CreateEmployee = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className="row">
-        <div className="card col-md-6 offset-md-3">
-          {pageTitle()}
-          <div className="card-body">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group mb-2">
-                <label className="form-label">Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter your full name"
-                  name="name"
-                  className="form-control"
-                   ref={employeeNameElement}
-                  required
-                />
-              </div>
-              <div className="form-group mb-2">
-                <label className="form-label">City</label>
-                <input
-                  type="text"
-                  placeholder="Enter your city name"
-                  name="city"
-                  className="form-control"
-                  ref={employeeCityElement}
-                  required
-                />
-              </div>
-              <div className="form-group mb-2">
-                <label className="form-label">Email</label>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  name="email"
-                  className="form-control"
-                  ref={employeeEmailElement}
-                  required
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </form>
+    <div className="d-flex flex-column justify-content-center align-items-center bg-light vh-100">
+      <div className="w-50 border bg-white shadow px-5 pt-3 pb-5 rounded">
+        {pageTitle()}
+        <form onSubmit={handleSubmit}>
+          <div className="mb-2">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              placeholder="Enter your full name"
+              name="name"
+              className="form-control"
+              ref={employeeNameElement}
+              required
+            />
           </div>
-        </div>
+          <div className="mb-2">
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              placeholder="Enter your city name"
+              name="city"
+              className="form-control"
+              ref={employeeCityElement}
+              required
+            />
+          </div>
+          <div className="mb-2">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              name="email"
+              className="form-control"
+              ref={employeeEmailElement}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-success">
+            Submit
+          </button>
+          <Link to="/" className="btn btn-primary ms-3">Back</Link>
+        </form>
       </div>
     </div>
   );

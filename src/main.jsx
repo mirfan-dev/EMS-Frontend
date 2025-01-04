@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {createBrowserRouter,  RouterProvider} from "react-router-dom";
 import ListEmployeeComponent from './components/ListEmployeeComponent.jsx';
 import CreateEmployee from './components/CreateEmployee.jsx';
+import ReadEmployee from './components/ReadEmployee.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: "/", element: <ListEmployeeComponent /> },
       { path: "create-employee", element: <CreateEmployee /> },
       { path: "edit-employee/:id", element: <CreateEmployee /> },
+      {path:"/read/:id", element:<ReadEmployee />},
 
     ],
   },
